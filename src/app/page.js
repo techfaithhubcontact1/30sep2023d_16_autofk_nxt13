@@ -1,95 +1,64 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+//1. import Area
+// Import {namedImport} from 'some library/location'
+import { APP_BRAND, APP_BRAND_WEB_URL, APP_NAME } from "@/Helper/helper";
 
+import Link from "next/link";
+ 
+ //2. defination area  and export area
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <>
+      <main>
+        <div className="container">
+          <section className="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+            <div className="container">
+              <div className="row justify-content-center">
+                <div className="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
+                  <div className="d-flex justify-content-center py-4">
+                    <Link href="/" className="logo d-flex align-items-center w-auto">
+                      <img src="../assets/img/logo.png" alt="true" />
+                      <span className="d-none d-lg-block"> {APP_NAME} </span>
+                    </Link>
+                  </div>{/* End Logo */}
+                  <div className="card mb-3">
+                    <div className="card-body">
+                      <div className="pt-4 pb-2">
+                        <h5 className="card-title text-center pb-0 fs-4">Login</h5>
+                      </div>
+                      <form className="row g-3 needs-validation" noValidate>
+                        <div className="col-12">
+                          <div className="input-group has-validation">
+                            <span className="input-group-text" id="inputGroupPrepend">@</span>
+                            <input type="text" name="username" className="form-control" id="yourUsername" required placeholder="Username" />
+                            <div className="invalid-feedback">Please enter your username.</div>
+                          </div>
+                        </div>
+                        <div className="col-12">
+                          <input type="password" name="password" className="form-control" id="yourPassword" required placeholder="Password" />
+                          <div className="invalid-feedback">Please enter your password!</div>
+                        </div>
+                        <div className="col-12">
+                          <div className="form-check">
+                            <input className="form-check-input" type="checkbox" name="remember" defaultValue="true" id="rememberMe" />
+                            <label className="form-check-label" htmlFor="rememberMe">Remember me</label>
+                          </div>
+                        </div>
+                        <div className="col-12">
+                          <Link href="/NiceAdmin/Dashboard" className="btn btn-primary w-100" type="submit">Login</Link>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <div className="credits">
+                    Designed by <a href={`${APP_BRAND_WEB_URL}`} target="_blank" > {APP_BRAND} </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      </main>{/* End #main */}
+      <a href="#" className="back-to-top d-flex align-items-center justify-content-center"><i className="bi bi-arrow-up-short" /></a>
+    </>
   )
 }
